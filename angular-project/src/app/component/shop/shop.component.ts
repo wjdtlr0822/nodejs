@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  namelist=['a','b','c','d'] //나중에 이미지값 및 이미지 저장경로를 불러오기.
+  numbers=Array.from(Array(4).keys());
   constructor() { }
 
   ngOnInit(): void {
