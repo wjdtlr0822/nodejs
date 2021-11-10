@@ -18,6 +18,7 @@ import { SeparateCollectionComponent } from './component/separate-collection/sep
 import { AdminpageComponent } from './component/adminpage/adminpage.component';
 import { ManagementComponent } from './adminpage/management/management.component';
 import { ProductregistrationComponent } from './adminpage/productregistration/productregistration.component';
+import { ReaddataService } from './services/readdata.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ProductregistrationComponent } from './adminpage/productregistration/pr
     ValidateService,
     FlashMessagesService,
     AuthService,
+    ReaddataService,
   ],
   bootstrap: [AppComponent]
 })

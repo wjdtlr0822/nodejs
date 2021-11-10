@@ -3,10 +3,21 @@ const router=express.Router();
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const config = require('../config/database')
+const config = require('../config/database');
+const Product = require('../models/product');
 
 
 // back - end
+
+router.get('/findall',(req,res)=>{
+    const postList = Product.findAll()
+    res.json({data:postList})
+    // const postList = User.find({})
+    // console.log(postList)
+    // res.json({data:postList})
+})
+
+
 router.post('/register',(req,res)=>{
     let newUser = new User({
         name : req.body.name,
