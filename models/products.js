@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 const { query } = require('express');
 
-const imgSchema = mongoose.Schema({
+const ProductSchema = mongoose.Schema({
     imgsrc:{ //id
         type:String,
         require : true
@@ -16,12 +16,13 @@ const imgSchema = mongoose.Schema({
         type : String,
         require : true
     },
-    // price:{
-    //     type : Int32Array,
-    //     require : true,
-    // }
+    price:{
+        type : Number,
+        default:0,
+        require : true,
+    }
 });
-const Product = mongoose.model('Product',imgSchema);
+const Product = mongoose.model('Product',ProductSchema);
 
 Product.findAll=function(){
     Product.find({});

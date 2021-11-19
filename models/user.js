@@ -21,8 +21,9 @@ const UserSchema = mongoose.Schema({
         require : true,
     },
     // point:{
-    //     type : Int32Array,
-    //     default:0
+    //     type : Number,
+    //     default:0,
+    //     require:true
     // }
 });
 

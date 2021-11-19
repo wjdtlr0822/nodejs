@@ -4,7 +4,6 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const config = require('../config/database');
-const Product = require('../models/product');
 
 
 // back - end
