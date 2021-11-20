@@ -9,7 +9,8 @@ const config = require('../config/database');
 // back - end
 
 router.get('/findall',(req,res)=>{
-    const postList = Product.findAll()
+    const postList = User.findAll()
+    console.log(postList)
     res.json({data:postList})
     // const postList = User.find({})
     // console.log(postList)

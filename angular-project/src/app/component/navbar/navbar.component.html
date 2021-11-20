@@ -10,25 +10,28 @@
         <a class="nav-link text-white" aria-current="page" routerLink="/" >Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/shop">shop</a>
+            <a class="nav-link text-white" routerLink="/shop" *ngIf="checkLoggedIn()">shop</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="checkLoggedIn()">
             <a class="nav-link text-white" routerLink="/collect">collect</a>
         </li>
     </ul>
     
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/login">login</a>
+            <a class="nav-link text-white" routerLink="/login" *ngIf="!checkLoggedIn()">login</a>
+        </li>        
+        <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/profile" *ngIf="checkLoggedIn()">마이페이지</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/profile">마이페이지</a>
+            <a class="nav-link text-white" routerLink="/admin" >관리자 페이지</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/admin">관리자 페이지</a>
+            <a class="nav-link text-white" (click)="onLogoutClick()" href="#" *ngIf="checkLoggedIn()">logout</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/register">register</a>
+            <a class="nav-link text-white" routerLink="/register" *ngIf="!checkLoggedIn()">register</a>
         </li>
     
     </ul>

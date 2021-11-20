@@ -19,6 +19,7 @@ import { AdminpageComponent } from './component/adminpage/adminpage.component';
 import { ManagementComponent } from './adminpage/management/management.component';
 import { ProductregistrationComponent } from './adminpage/productregistration/productregistration.component';
 import { ReaddataService } from './services/readdata.service';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,13 @@ import { ReaddataService } from './services/readdata.service';
     FormsModule,
     FlashMessagesModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter:()=>{
+          return localStorage.getItem('authToken')
+        }
+      }
+    })
   ],
   providers: [
     ValidateService,

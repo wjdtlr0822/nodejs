@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Login, User, UserNoPW } from '../models/User';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 const httpOptions={
   headers:new HttpHeaders({
@@ -18,6 +19,7 @@ export class AuthService {
 
   constructor(
     private http:HttpClient,
+    private jwtHelper:JwtHelperService
   ) { }
 
   registerUser(user):Observable<any>{ //Observable : rxjs방식으로 서버의 응답을 받아서 전달하는 방식
@@ -34,5 +36,14 @@ export class AuthService {
     localStorage.setItem('authToken',token);
     localStorage.setItem('UserNoPW',JSON.stringify(userNoPW))
 
+  }
+
+  logout(){
+    localStorage.clear();
+  }
+
+  loggedIn():boolean{
+    let authToken:any=localStorage.getItem('authToken');
+    return !this.jwtHelper.isTokenExpired(authToken)
   }
 }

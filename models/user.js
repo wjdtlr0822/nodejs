@@ -20,11 +20,11 @@ const UserSchema = mongoose.Schema({
         type : String,
         require : true,
     },
-    // point:{
-    //     type : Number,
-    //     default:0,
-    //     require:true
-    // }
+    point:{
+        type : Number,
+        default:0,
+        require:true
+    }
 });
 
 
