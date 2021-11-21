@@ -48,11 +48,11 @@ export class ReaddataService {
         const product: Product = {
           _id: productData.product._id,
           productname: name,
-          imagesrc: productData.product.imagesrc,
+          imgsrc: productData.product.imgsrc,
           extra: productData.product.extra,
           price: productData.product.price,
         };
-        this.product.push(product);
+        this.product.push(product);//수정하기
       });
   }
 }

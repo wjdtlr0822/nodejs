@@ -14,18 +14,15 @@ router.get("/findallProduct", (req, res, next) => {
 router.post("/product",storage,(exports.postProduct = async (req, res) => {
     const productname = req.body.name;
     const extra = req.body.extra;
-    const imagesrc = "http://localhost:3000/images/" + req.file.filename; // set path dynamically
+    const imgsrc = "http://localhost:3000/images/" + req.file.filename; //수정하기
     const price = req.body.price;
     const product = new Product({
     productname,
-    imagesrc,
+    imgsrc,
     extra,
     price,
     });
-    console.log(product.imagesrc)
-    console.log(product.extra)
-    console.log(req.file.filename)
-    const createdProduct = await product.save();
+    const createdProduct = await product.save();//수정하기
     res.status(201).json({
     product: {
         ...createdProduct._doc,

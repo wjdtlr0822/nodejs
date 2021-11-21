@@ -8,8 +8,6 @@ const config = require('../config/database');
 
 // back - end
 
-
-
 //user find all
 router.get("/findalluser", (req, res, next) => {
     User.find({}, (err, users) => {
