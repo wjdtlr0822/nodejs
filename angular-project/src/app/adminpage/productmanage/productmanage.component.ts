@@ -17,5 +17,7 @@ export class ProductmanageComponent implements OnInit {
       this.productlist=data;
     })
   }
-
+  delete(){
+    
+  }
 }

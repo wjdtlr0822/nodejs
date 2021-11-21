@@ -16,4 +16,8 @@ export class ManagementComponent implements OnInit {
       this.userlist = data;
     });
   }
+
+  delete(){
+    
+  }
 }

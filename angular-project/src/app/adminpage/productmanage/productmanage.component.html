@@ -1,8 +1,8 @@
-<table border="1" width="500">
+<table border="1" width="1000">
     <tr>
-    <td>name</td>
-    <td>extra</td>
-    <td>price</td>
+    <td>물품명</td>
+    <td>물품 설명</td>
+    <td>금액</td>
     </tr>
     <tr *ngFor="let product of productlist">
     <td>
@@ -18,7 +18,7 @@
         사진 작게 나오게하기imgsrc등록후
     </td>
     <td>
-        지우기 버튼
+            <button (click)="delete()">물품삭제</button>
     </td>
     </tr>
 </table>
