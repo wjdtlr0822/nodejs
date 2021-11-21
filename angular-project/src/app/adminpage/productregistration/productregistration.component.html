@@ -1,1 +1,23 @@
-<p>물품등록 페이지</p>
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div>
+    <label>Product name</label><br>
+    <input formControlName="name" type="text" />
+    </div>
+    <div>
+    <label for="">Product extra</label><br>
+    <input formControlName="extra" type="text" />
+    </div>
+    <div>
+    <label for="">Product price</label><br>
+    <input formControlName="price" type="number" />
+    </div>
+    <div>
+    <input (change)="onFIleSelect($event)" type="file" />
+    </div>
+    <div *ngIf="imageData">
+    <img [src]="imageData" [alt]="form.value.name" />
+    </div>
+    <div>
+    <button type="submit">등록</button>
+    </div>
+</form>

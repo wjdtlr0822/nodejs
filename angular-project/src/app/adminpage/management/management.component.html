@@ -1,1 +1,18 @@
-<div *ngIf="name">{{name}}gdgd</div>
+<table border="1" width="500">
+    <tr>
+    <td>name</td>
+    <td>username</td>
+    <td>email</td>
+    </tr>
+    <tr *ngFor="let user of userlist">
+    <td>
+        {{ user["name"] }}
+    </td>
+    <td>
+        {{ user["username"] }}
+    </td>
+    <td>
+        {{ user["email"] }}
+    </td>
+    </tr>
+</table>

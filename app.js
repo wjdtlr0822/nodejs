@@ -4,10 +4,12 @@ const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
+const products = require("./routes/products");
 const app = express();
 const users = require('./routes/users');
 
-const port=3000;
+
+const port = process.env.PORT || 3000;
 
 mongoose.connect(config.database);
 mongoose.connection.on('connected',()=>{
@@ -33,3 +35,5 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users',users);
+app.use("/images", express.static(path.join("images")));
+app.use("/api/product", products);

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -20,6 +19,7 @@ import { ManagementComponent } from './adminpage/management/management.component
 import { ProductregistrationComponent } from './adminpage/productregistration/productregistration.component';
 import { ReaddataService } from './services/readdata.service';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { JwtModule } from '@auth0/angular-jwt';
           return localStorage.getItem('authToken')
         }
       }
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [
     ValidateService,

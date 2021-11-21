@@ -30,9 +30,6 @@ const UserSchema = mongoose.Schema({
 
 const User = mongoose.model('User',UserSchema);
 
-User.findAll=function(){
-    User.find({})
-}
 
 User.getUserByName = function(name,callback){
     const query = {name : name};

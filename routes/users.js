@@ -8,15 +8,14 @@ const config = require('../config/database');
 
 // back - end
 
-router.get('/findall',(req,res)=>{
-    const postList = User.findAll()
-    console.log(postList)
-    res.json({data:postList})
-    // const postList = User.find({})
-    // console.log(postList)
-    // res.json({data:postList})
-})
 
+
+//user find all
+router.get("/findalluser", (req, res, next) => {
+    User.find({}, (err, users) => {
+    res.json(users);
+    });
+});
 
 router.post('/register',(req,res)=>{
     let newUser = new User({
