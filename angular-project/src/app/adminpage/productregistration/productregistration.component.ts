@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Product } from 'src/app/models/Product';
 import { ReaddataService } from 'src/app/services/readdata.service';
 
@@ -14,7 +16,9 @@ export class ProductregistrationComponent implements OnInit {
   imageData: string;
   price: Number;
 
-  constructor(private readdataService: ReaddataService) {}
+  constructor(private readdataService: ReaddataService,
+              private router:Router,
+              private flashmessage:FlashMessagesService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -32,8 +36,11 @@ export class ProductregistrationComponent implements OnInit {
       this.form.value.extra,
       this.form.value.price,
     );
-    this.form.reset();
-    this.imageData = '';
+    this.flashmessage.show("등록완료",{
+      cssClass:'alert-success',
+      timeout:3000
+    })
+    this.router.navigate([''])
   }
 
   onFIleSelect(event: Event) {

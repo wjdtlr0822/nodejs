@@ -36,4 +36,4 @@ require('./config/passport')(passport);
 
 app.use('/users',users);
 app.use("/images", express.static(path.join("images")));
-app.use("/api/product", products);
+app.use("/api", products);

@@ -18,15 +18,24 @@ export class ReaddataService {
 
   constructor(private http: HttpClient) {}
 
-  findall(): Observable<any> {
-    const findallurl = 'http://localhost:3000/users/findall';
-    return this.http.get(findallurl, httpOptions);
-  }
+  // findall(): Observable<any> {
+  //   const findallurl = 'http://localhost:3000/users/findall';
+  //   return this.http.get(findallurl, httpOptions);
+  // }
 
   findallUser(): Observable<any> {
     const findallurl = 'http://localhost:3000/users/findalluser';
     return this.http.get(findallurl, httpOptions);
   }
+
+
+
+
+  findallProduct():Observable<any>{
+    const url = 'http://localhost:3000/api/findallProduct';
+    return this.http.get(url,httpOptions);
+  }
+
 
   addProduct(name: string, image: string, extra: string,price:string): void {
     const productData = new FormData();

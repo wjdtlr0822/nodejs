@@ -20,6 +20,7 @@ import { ProductregistrationComponent } from './adminpage/productregistration/pr
 import { ReaddataService } from './services/readdata.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductmanageComponent } from './adminpage/productmanage/productmanage.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SeparateCollectionComponent,
     AdminpageComponent,
     ManagementComponent,
-    ProductregistrationComponent
+    ProductregistrationComponent,
+    ProductmanageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<table border="1" width="500">
+    <tr>
+    <td>name</td>
+    <td>extra</td>
+    <td>price</td>
+    </tr>
+    <tr *ngFor="let product of productlist">
+    <td>
+        {{ product["productname"] }}
+    </td>
+    <td>
+        {{ product["extra"] }}
+    </td>
+    <td>
+        {{ product["price"] }}
+    </td>
+    <td>
+        사진 작게 나오게하기imgsrc등록후
+    </td>
+    <td>
+        지우기 버튼
+    </td>
+    </tr>
+</table>
