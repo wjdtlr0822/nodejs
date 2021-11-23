@@ -38,12 +38,38 @@ export class AuthService {
 
   }
 
+  getProfile(): Observable<any> {
+    let authToken: any = localStorage.getItem('authToken');
+    // 토큰을 포함한 헤더 옵션 생성
+    const httpOptions1 = {
+    headers: new HttpHeaders({
+    'Content-Type': 'application/json', 
+    Authorization: 'Bearer ' + authToken,
+    }),
+    };
+    const profileUrl = 'http://localhost:3000/users/profile';
+    return this.http.get<any>(profileUrl, httpOptions1);
+    }
+
+  buyproduct(num,point){
+    if((point-num)<0){
+      return 'false';
+    }
+    else{
+      const buyproducturl='http://localhost:3000/users/buy';
+      return this.http.get<any>(buyproducturl,httpOptions);
+      return 'true';
+    }
+    
+  }
+
+
   logout(){
     localStorage.clear();
   }
 
   loggedIn():boolean{
     let authToken:any=localStorage.getItem('authToken');
-    return !this.jwtHelper.isTokenExpired(authToken)
+    return !this.jwtHelper.isTokenExpired(authToken);
   }
 }

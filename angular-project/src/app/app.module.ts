@@ -21,6 +21,9 @@ import { ReaddataService } from './services/readdata.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductmanageComponent } from './adminpage/productmanage/productmanage.component';
+import { ShopProductComponent } from './component/shop-product/shop-product.component';
+import { AuthGuard } from './guards/auth.guard';
+import { DeleteService } from './services/delete.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { ProductmanageComponent } from './adminpage/productmanage/productmanage.
     AdminpageComponent,
     ManagementComponent,
     ProductregistrationComponent,
-    ProductmanageComponent
+    ProductmanageComponent,
+    ShopProductComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { ProductmanageComponent } from './adminpage/productmanage/productmanage.
     FlashMessagesService,
     AuthService,
     ReaddataService,
+    AuthGuard,
+    DeleteService
   ],
   bootstrap: [AppComponent]
 })

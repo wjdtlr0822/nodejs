@@ -9,7 +9,7 @@
     </div>
     <div>
     <label for="">금 액</label><br>
-    <input formControlName="price" type="number" />
+    <input formControlName="price" type="number" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />
     </div>
     <div>
     <input (change)="onFIleSelect($event)" type="file" />

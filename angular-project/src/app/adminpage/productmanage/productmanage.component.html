@@ -1,8 +1,9 @@
-<table border="1" width="1000">
+<table class="table table-hover" >
     <tr>
     <td>물품명</td>
     <td>물품 설명</td>
     <td>금액</td>
+    <td>사진</td>
     </tr>
     <tr *ngFor="let product of productlist">
     <td>
@@ -15,7 +16,7 @@
         {{ product["price"] }}
     </td>
     <td>
-        사진 작게 나오게하기imgsrc등록후
+        <img src="{{product['imgsrc']}}" width="250">
     </td>
     <td>
             <button (click)="delete()">물품삭제</button>

@@ -59,7 +59,8 @@ router.post('/authenticate',(req,res,next)=>{
                     _id:user._id,
                     name:user.name,
                     username:user.username,
-                    email:user.email
+                    email:user.email,
+                    point:user.point,
                 }
                 const token = jwt.sign({data:tokenUser},config.secret,{expiresIn:604800});
                 res.json({
@@ -76,18 +77,21 @@ router.post('/authenticate',(req,res,next)=>{
 })
 
 
-router.get('/login',(req,res,next)=>{
-    res.send('login page');
+// router.get('/login',(req,res,next)=>{
+//     res.send('login page');
+// });
+
+
+router.get('/profile',passport.authenticate('jwt',{ session:false }),(req,res, next)=>{
+    res.json({
+        user : {
+            name : req.user.name,
+            username : req.user.username,
+            email : req.user.email,
+            point : req.user.point
+        }
+    });
 });
 
-router.get('/profile',passport.authenticate('jwt',{session:false}),(req,res,next)=>{
-    res.json({
-        user:{
-            name:req.user.name,
-            username:req.user.username,
-            email:req.user.email
-        }
-    })
-});
 
 module.exports = router;

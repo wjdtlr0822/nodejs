@@ -15,4 +15,5 @@ export interface UserNoPW{
     name:string;
     username:string;
     email:string;
+    price:number;
 }

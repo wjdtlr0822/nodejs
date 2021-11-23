@@ -17,7 +17,7 @@ export class ManagementComponent implements OnInit {
     });
   }
 
-  delete(){
-    
+  delete(user){
+    //user정보 기반으로 삭제하기.
   }
 }

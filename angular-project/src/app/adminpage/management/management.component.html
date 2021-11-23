@@ -1,6 +1,6 @@
 <table border="1" width="500">
     <tr>
-    <td>name</td>
+    <td>ID</td>
     <td>username</td>
     <td>email</td>
     </tr>
@@ -15,7 +15,7 @@
         {{ user["email"] }}
     </td>
     <td>
-        <button (click)="delete()">계정삭제</button>
+        <button (click)="delete(user)">계정삭제</button>
     </td>
     </tr>
 </table>

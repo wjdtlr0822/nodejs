@@ -30,6 +30,9 @@ const UserSchema = mongoose.Schema({
 
 const User = mongoose.model('User',UserSchema);
 
+User.getUserById=function(id,callback){
+    User.findById(id,callback);
+}
 
 User.getUserByName = function(name,callback){
     const query = {name : name};
