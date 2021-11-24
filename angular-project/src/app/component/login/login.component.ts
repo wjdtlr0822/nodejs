@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           cssClass:'alert-success',
           timeout:3000
         })        
-        this.router.navigate([''])
+        this.router.navigate(['profile'])
       }
       else{
         this.flashMessage.show("로그인 실패",{

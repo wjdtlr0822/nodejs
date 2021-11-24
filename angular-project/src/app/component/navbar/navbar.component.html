@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <div class="container-fluid">
     <a class="navbar-brand text-white" href="#">Trash</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,4 +37,44 @@
     </ul>
     </div>
 </div>
-</nav>
+</nav> -->
+
+
+<div class="navbar">
+    <div class="navbar-header">
+    <div class="container">
+        <a href="#" class="brand">
+            <img
+                src="assets/images/최종 메인.png"
+                width="120"
+                height="40"
+                alt="Logo"
+            />
+            <!-- This is website logo -->
+        </a>
+        <!-- Navigation button, visible on small resolution -->
+        <button
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse"
+        >
+            <i class="icon-menu"></i>
+        </button>
+        <!-- Main navigation -->
+        <div class="">
+            <ul class="nav" id="top-navigation">
+                <li class="active"><a routerLink="">Home</a></li>
+                <li><a routerLink="/collect" *ngIf="checkLoggedIn()">재활용 적립</a></li>
+                <li><a routerLink="/shop" *ngIf="checkLoggedIn()">포인트몰</a></li>
+                <li><a routerLink="/profile" *ngIf="checkLoggedIn()">마이페이지</a></li>
+                <li><a routerLink="/admin">관리자페이지</a></li>
+                <li><a routerLink="/login" *ngIf="!checkLoggedIn()">로그인</a></li>
+                <li><a routerLink="/register" *ngIf="!checkLoggedIn()">회원가입</a></li>
+                <li><a class="nav-link text-white" (click)="onLogoutClick()" href="#" *ngIf="checkLoggedIn()">logout</a></li>
+            </ul>
+        </div>
+        <!-- End main navigation -->
+    </div>
+    </div>
+</div>
