@@ -24,6 +24,10 @@ import { ProductmanageComponent } from './adminpage/productmanage/productmanage.
 import { ShopProductComponent } from './component/shop-product/shop-product.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DeleteService } from './services/delete.service';
+import { BoardreadComponent } from './component/board/boardread/boardread.component';
+import { BoardwriteComponent } from './component/board/boardwrite/boardwrite.component';
+import { BoardComponent } from './component/board/board.component';
+import { adminGuard } from './guards/adminGuard';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { DeleteService } from './services/delete.service';
     ManagementComponent,
     ProductregistrationComponent,
     ProductmanageComponent,
-    ShopProductComponent
+    ShopProductComponent,
+    BoardreadComponent,
+    BoardwriteComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,8 @@ import { DeleteService } from './services/delete.service';
     AuthService,
     ReaddataService,
     AuthGuard,
-    DeleteService
+    DeleteService,
+    adminGuard
   ],
   bootstrap: [AppComponent]
 })

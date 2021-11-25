@@ -5,10 +5,9 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const products = require("./routes/products");
-const app = express();
+const boards = require('./routes/boards');
 const users = require('./routes/users');
-
-
+const app = express();
 const port = process.env.PORT || 3000;
 
 mongoose.connect(config.database);
@@ -37,3 +36,4 @@ require('./config/passport')(passport);
 app.use('/users',users);
 app.use("/images", express.static(path.join("images")));
 app.use("/api", products);
+app.use('/boards',boards);

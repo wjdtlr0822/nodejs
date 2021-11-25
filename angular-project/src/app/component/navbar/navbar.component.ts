@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { UserNoPW } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,6 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  UserNoPW : any;
+  name : string;
+  userString:any;
+  admin="admin"
+
   constructor(
     private authService: AuthService,
     private router:Router,
@@ -17,6 +23,9 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userString=localStorage.getItem("UserNoPW");
+    this.UserNoPW = JSON.parse(this.userString);
+    this.name=this.UserNoPW.name;
   }
 
   onLogoutClick():void{
@@ -30,5 +39,7 @@ export class NavbarComponent implements OnInit {
 
   checkLoggedIn():boolean{
     return this.authService.loggedIn();
+
   }
+
 }

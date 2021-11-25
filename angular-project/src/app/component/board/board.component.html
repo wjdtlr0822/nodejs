@@ -1,0 +1,18 @@
+<table class="table table-striped">
+<thead class="table-dark">
+<tr>
+      <th>id</th>
+      <th>title</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let board of boards">
+      <td>{{ board.name }}</td>
+      <td>
+      <a  (click)='Readboard(board)' class="text-primary"> {{ board.title }}</a>
+      </td>
+</tr>
+</tbody>
+</table>
+
+<input routerLink="/boardwrite" type="submit" class="btn btn-primary" value="글쓰기"/>

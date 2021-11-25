@@ -6,7 +6,26 @@ import { Injectable } from '@angular/core';
 export class ValidateService {
 
   constructor() { }
-
+//   *******************************
+//   *******************************
+//   *******MADE BY 용호***********
+//   ******************************* 
+//   *******************************
+  validateBoard(board){
+    if(
+      board.title == undefined||
+      board.content == undefined
+    ){
+      return false;
+    }
+    else{ return true}
+  }
+  
+//   *******************************
+//   *******************************
+//   *******MADE BY 정식***********
+//   ******************************* 
+//   *******************************
   validateRegister(user){
     if(
       user.name == undefined||

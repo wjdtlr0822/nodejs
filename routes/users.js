@@ -93,5 +93,26 @@ router.get('/profile',passport.authenticate('jwt',{ session:false }),(req,res, n
     });
 });
 
+router.get('/admin',passport.authenticate('jwt',{ session:false }),(req,res, next)=>{
+    res.json({
+        admin : {
+            name : req.user.name,
+            username : req.user.username,
+            email : req.user.email,
+            point : req.user.point
+        }
+    });
+});
+
+router.post("/delete",(req,res,next)=>{
+    User.deleteUser(req.body._id,(err,ok)=>{
+        if(err) throw err;
+        if(ok){
+            res.json({
+                msg: req.body.name +"님의 아이디 삭제가 완료되었습니다."
+            })
+        }
+    })
+})
 
 module.exports = router;

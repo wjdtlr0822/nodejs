@@ -27,5 +27,8 @@ Product.findAll=function(){
     Product.find({});
 }
 
+Product.deleteUser=function(id,callback){
+    this.deleteOne({_id:id},callback)
+}
 
 module.exports=Product;

@@ -61,7 +61,9 @@ User.comparePassword = function(candidatePassword, hash, callback){
     });
 }
 
-
+User.deleteUser=function(id,callback){
+    this.deleteOne({_id:id},callback)
+}
 
 
 

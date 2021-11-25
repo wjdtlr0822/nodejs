@@ -1,32 +1,74 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Login } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { UserNoPW } from 'src/app/models/User';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  name:string;
-  username:string;
-  email:string;
+  
+  userString:any;
+  userNoPW: UserNoPW;
+  name: string;
+  email : string;
+  username : string;
+  password: string;
+  password1: string;
+  token: any;
   point:number;
 
   constructor(
-    private authService:AuthService
-  ) { }
+    private authService:AuthService,
+    private flashMessage:FlashMessagesService,
+    private router:Router
+  ) {}
+
+  ChangePWSubmit(){
+    const login:Login={
+      name:this.userNoPW.name,
+      password:this.password
+    };
+    const login1:Login={
+      name:this.userNoPW.name,
+      password:this.password1
+    };
+    this.authService.authenticateUser(login).subscribe((data)=>{
+      if(data.success){
+        this.authService.ChangePW(login1).subscribe((data)=>{
+        console.log(data);
+        this.flashMessage.show("비밀번호 변경 성공",{
+          cssClass:'alert-success',
+          timeout:3000
+        })
+      })   
+      console.log('last');
+      this.router.navigate(['/login']);
+      this.authService.logout(); 
+      }
+      else{
+        this.flashMessage.show("비밀번호가 맞지 않습니다",{
+          cssClass:'alert-danger',
+          timeout:3000
+        })
+      }
+
+  })}
+  
+
 
   ngOnInit(): void {
-    this.authService.getProfile().subscribe((profile)=>{
-    console.log(profile)
-    this.name=profile.user.name;
-    this.username=profile.user.username;
-    this.email=profile.user.email;
-    this.point=profile.user.point;
-  },(err)=>{
-    console.log(err);
-    return false;
-  }); //서버가 주는 데이터를 profile로 읽음
-}
+    this.userString = localStorage.getItem('UserNoPW');
+    console.log(this.userString);
+    this.userNoPW = JSON.parse(this.userString);
+    this.name = this.userNoPW.name;
+    this.email = this.userNoPW.email;
+    this.username = this.userNoPW.username;
+    this.point=this.userNoPW.point;
+
+  }
 
 }

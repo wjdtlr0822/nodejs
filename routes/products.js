@@ -41,4 +41,15 @@ router.get('/findall',(req,res)=>{
     // res.json({data:postList})
 })
 
+router.post("/delete",(req,res,next)=>{
+    Product.deleteUser(req.body._id,(err,ok)=>{
+        if(err) throw err;
+        if(ok){
+            res.json({
+                msg: req.body.productname +" 삭제가 완료되었습니다."
+            })
+        }
+    })
+})
+
 module.exports = router;

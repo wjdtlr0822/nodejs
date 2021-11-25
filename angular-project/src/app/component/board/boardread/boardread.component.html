@@ -1,0 +1,21 @@
+<h1>게시판읽기</h1>
+
+<form *ngIf="board" (ngSubmit)="onBoardUpdate(Board)" >
+    <h2 class="page-header">작성자 : {{ board.name }}</h2>
+
+    <div class="form-header">
+        <textarea class="form-control" [(ngModel)]="title" [ngModelOptions]="{standalone:true}" id="title" >{{ title }}</textarea>
+    </div>
+
+    <div class="form-text">
+        <textarea rows="8"class="form-control" [(ngModel)]="content" [ngModelOptions]="{standalone:true}" id="content" >{{ content }}</textarea>
+    </div>
+
+    <div *ngIf="this.name == this.userNoPW.name">
+        <input type="submit"  class="btn btn-primary"  value="수정"/>
+    </div>
+</form>
+
+<div *ngIf="this.name == this.userNoPW.name">
+    <input type="submit" (click)='onBoardDelete()'   class="btn btn-primary"  value="삭제"/>
+</div>
