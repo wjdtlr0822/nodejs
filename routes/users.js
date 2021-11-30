@@ -8,13 +8,14 @@ const config = require('../config/database');
 
 // back - end
 
-//user find all
+//***********************호범 */
 router.get("/findalluser", (req, res, next) => {
     User.find({}, (err, users) => {
     res.json(users);
     });
 });
 
+//***********************정식 */
 router.post('/register',(req,res)=>{
     let newUser = new User({
         name : req.body.name,
@@ -76,12 +77,6 @@ router.post('/authenticate',(req,res,next)=>{
     })
 })
 
-
-// router.get('/login',(req,res,next)=>{
-//     res.send('login page');
-// });
-
-
 router.get('/profile',passport.authenticate('jwt',{ session:false }),(req,res, next)=>{
     res.json({
         user : {
@@ -104,6 +99,23 @@ router.get('/admin',passport.authenticate('jwt',{ session:false }),(req,res, nex
     });
 });
 
+router.post('/point',(req,res,next)=>{
+    console.log("test");
+    let userData = {
+        name : req.body.name,
+        point : req.body.point
+    };
+    console.log(userData.point);
+    User.point(userData,(err,ok)=>{
+        if(err) throw err;
+        if(ok){
+            res.json({
+                msg:"point 적립 성공"
+            })
+        }
+    });
+})
+
 router.post("/delete",(req,res,next)=>{
     User.deleteUser(req.body._id,(err,ok)=>{
         if(err) throw err;
@@ -113,6 +125,36 @@ router.post("/delete",(req,res,next)=>{
             })
         }
     })
+})
+
+
+// **********************************용호********************************
+
+router.post('/ChangePW',(req,res,next)=>{
+    let newUser = new User({
+        name : req.body.name,
+        password : req.body.password,
+    });
+
+    bcrypt.genSalt(10, function(err, salt){
+        if(err) throw err;
+
+        bcrypt.hash(newUser.password, salt , function(err, hash){
+            if (err) throw err;
+            newUser.password = hash;
+            console.log(hash);
+            console.log(newUser.password);
+
+            User.updateOne({name:newUser.name},{$set:{password: newUser.password}}, err => {
+                if(err){
+                    console.log("Change password 실패");
+                    console.error(err);
+                }
+                console.log("Change password 성공");
+            })
+        })
+    })
+
 })
 
 module.exports = router;

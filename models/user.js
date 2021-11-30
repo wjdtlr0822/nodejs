@@ -54,6 +54,10 @@ User.addUser=function(newUser,callback){
     })
 }
 
+User.point=function(userData,callback){
+    User.updateOne({name:userData.name},{$set:{point : userData.point}},callback)
+}
+
 User.comparePassword = function(candidatePassword, hash, callback){
     bcrypt.compare(candidatePassword,hash,(err,Match)=>{
         if(err) throw err;

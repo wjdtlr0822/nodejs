@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
     this.name = this.userNoPW.name;
     this.email = this.userNoPW.email;
     this.username = this.userNoPW.username;
-    this.point=this.userNoPW.point;
+    this.point=this.userNoPW.point; //db에서 값 가져오는걸로 변경하기
 
   }
 

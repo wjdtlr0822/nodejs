@@ -28,6 +28,7 @@ import { BoardreadComponent } from './component/board/boardread/boardread.compon
 import { BoardwriteComponent } from './component/board/boardwrite/boardwrite.component';
 import { BoardComponent } from './component/board/board.component';
 import { adminGuard } from './guards/adminGuard';
+import { PointService } from './services/point.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { adminGuard } from './guards/adminGuard';
     ReaddataService,
     AuthGuard,
     DeleteService,
-    adminGuard
+    adminGuard,
+    PointService,
   ],
   bootstrap: [AppComponent]
 })
