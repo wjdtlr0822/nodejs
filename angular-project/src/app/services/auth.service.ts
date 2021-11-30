@@ -60,18 +60,23 @@ export class AuthService {
     }
 
     //////////진행중
-  buyproduct(num,point){
-    if((point-num)<0){
-      return 'false';
-    }
-    else{
-      const buyproducturl='http://localhost:3000/users/buy';
-      return this.http.get<any>(buyproducturl,httpOptions);
-      return 'true';
-    }
+  // buyproduct(num,point){
+  //   if((point-num)<0){
+  //     return 'false';
+  //   }
+  //   else{
+  //     const buyproducturl='http://localhost:3000/users/buy';
+  //     return this.http.get<any>(buyproducturl,httpOptions);
+  //     return 'true';
+  //   }
     
-  }
+  // }
   
+  getPoint(name):Observable<any>{
+    const getpointurl='http://localhost:3000/users/getpoint';
+    return this.http.post(getpointurl,name,httpOptions);
+  }
+
   admin():Observable<any>{
     let adminToken:any=localStorage.getItem('authToken');
     const httpOptions1 = {

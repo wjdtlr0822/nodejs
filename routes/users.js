@@ -100,7 +100,6 @@ router.get('/admin',passport.authenticate('jwt',{ session:false }),(req,res, nex
 });
 
 router.post('/point',(req,res,next)=>{
-    console.log("test");
     let userData = {
         name : req.body.name,
         point : req.body.point
@@ -114,6 +113,16 @@ router.post('/point',(req,res,next)=>{
             })
         }
     });
+});
+
+router.post('/getpoint',(req,res,next)=>{
+    const name=req.body.name;
+    User.getUserByName(name,(err,user)=>{
+        if(err) throw err;
+        if(user){
+            res.json(user)
+        }
+    })
 })
 
 router.post("/delete",(req,res,next)=>{
