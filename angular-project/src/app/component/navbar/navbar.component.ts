@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent implements OnInit {
 
   UserNoPW : any;
-  name : string;
+  name : any;
   userString:any;
   admin="admin"
 

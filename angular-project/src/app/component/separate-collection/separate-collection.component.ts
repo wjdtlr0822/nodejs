@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import * as temp from '../../../assets/js/tensor.js'
 
 @Component({
   selector: 'app-separate-collection',
@@ -7,12 +8,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./separate-collection.component.scss']
 })
 export class SeparateCollectionComponent implements OnInit {
-  modelURL="./my_model/model.json";
-  metadataURL="./my_model/metadata.json"
-  model:any;
-  webcam:any;
-  labelContainer:any;
-  maxPredictions:any;
+  test:any;
 
   constructor(
     private flashMessege:FlashMessagesService
@@ -21,6 +17,21 @@ export class SeparateCollectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  test1(){
+    this.test=temp.test1();
+    if(this.test=="pet"){
+      this.flashMessege.show("ccc",{
+        clssClass:"alert-success",
+        timeout:3000
+      })
+    }
+  }
 
+  testtest(){
+    this.flashMessege.show("test success",{
+      cssClass:'alert-success',
+      timeout:3000
+    })
+  }
   
 }
