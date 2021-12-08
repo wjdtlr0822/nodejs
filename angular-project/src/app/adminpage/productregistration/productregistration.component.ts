@@ -36,11 +36,11 @@ export class ProductregistrationComponent implements OnInit {
       this.form.value.extra,
       this.form.value.price,
     );
+    this.router.navigate(['/admin'])
     this.flashmessage.show("등록완료",{
       cssClass:'alert-success',
       timeout:3000
     })
-    this.router.navigate([''])
   }
 
   onFIleSelect(event: Event) {
