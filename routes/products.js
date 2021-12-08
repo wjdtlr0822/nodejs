@@ -14,7 +14,7 @@ router.get("/findallProduct", (req, res, next) => {
 router.post("/product",storage,(exports.postProduct = async (req, res) => {
     const productname = req.body.name;
     const extra = req.body.extra;
-    const imgsrc = "http://localhost:3000/images/" + req.file.filename; //수정하기
+    const imgsrc = "../images/" + req.file.filename; //수정하기
     const price = req.body.price;
     const product = new Product({
     productname,
