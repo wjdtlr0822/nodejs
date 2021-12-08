@@ -24,7 +24,10 @@ export class AuthService {
 
 
 
-
+  PrepEndpoint(ep){
+    // return "http://localhost:3000/"+ep;
+    return ep;
+  }
 
 //   *******************************
 //   *******************************
@@ -32,12 +35,12 @@ export class AuthService {
 //   ******************************* 
 //   *******************************
   registerUser(user):Observable<any>{ //Observable : rxjs방식으로 서버의 응답을 받아서 전달하는 방식
-    const registerUrl='http://localhost:3000/users/register';
+    const registerUrl=this.PrepEndpoint('users/register');
     return this.http.post(registerUrl,user,httpOptions) //server로 값을 보냄
   }
 
   authenticateUser(login:Login):Observable<any>{
-    const authenticateUserUrl='http://localhost:3000/users/authenticate';
+    const authenticateUserUrl=this.PrepEndpoint('users/authenticate');
     return this.http.post<any>(authenticateUserUrl,login,httpOptions)
   }
 
@@ -55,7 +58,7 @@ export class AuthService {
     Authorization: 'Bearer ' + authToken,
     }),
     };
-    const profileUrl = 'http://localhost:3000/users/profile';
+    const profileUrl = this.PrepEndpoint('users/profile');
     return this.http.get<any>(profileUrl, httpOptions1);
     }
 
@@ -73,7 +76,7 @@ export class AuthService {
   // }
   
   getPoint(name):Observable<any>{
-    const getpointurl='http://localhost:3000/users/getpoint';
+    const getpointurl=this.PrepEndpoint('users/getpoint');
     return this.http.post(getpointurl,name,httpOptions);
   }
 
@@ -85,7 +88,7 @@ export class AuthService {
       Authorization: 'Bearer ' + adminToken,
       }),
       };
-      const adminUrl = 'http://localhost:3000/users/admin';
+      const adminUrl = this.PrepEndpoint('users/admin');
       return this.http.get<any>(adminUrl, httpOptions1);
   }
 
@@ -115,29 +118,29 @@ export class AuthService {
 //   *******************************
 
 registerBoard(board):Observable<any>{
-  const boardwriteUrl='http://localhost:3000/boards/boardwrite';
+  const boardwriteUrl=this.PrepEndpoint('boards/boardwrite');
   return this.http.post(boardwriteUrl,board,httpOptions)
 }
 
 UpdateBoard(board):Observable<any>{
   console.log(board);
-  const boardupdateUrl='http://localhost:3000/boards/boardupdate';
+  const boardupdateUrl=this.PrepEndpoint('boards/boardupdate');
   return this.http.post(boardupdateUrl,board,httpOptions)
 }
 
 DeleteBoard(board):Observable<any>{
   console.log(board);
-  const DeleteBoardUrl='http://localhost:3000/boards/boardelete';
+  const DeleteBoardUrl=this.PrepEndpoint('boards/boardelete');
   return this.http.post(DeleteBoardUrl,board,httpOptions)
 }
 
 ChangePW(login:Login):Observable<any>{
-  const ChangePWUrl='http://localhost:3000/users/ChangePW';
+  const ChangePWUrl=this.PrepEndpoint('users/ChangePW');
   return this.http.post<any>(ChangePWUrl,login,httpOptions)
 }
 
 getList(): Observable<any> {
-  const listUrl = 'http://localhost:3000/boards/Boardlist';
+  const listUrl = this.PrepEndpoint('boards/Boardlist');
   return this.http.get(listUrl);
   }
 }

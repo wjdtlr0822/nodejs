@@ -13,8 +13,14 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ReaddataService {
+
+  PrepEndpoint(ep){
+    // return "http://localhost:3000/"+ep;
+    return ep;
+  }
+
   private product: Product[] = [];
-  readonly url = 'http://localhost:3000/api/product';
+  readonly url = this.PrepEndpoint('api/product');
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +30,7 @@ export class ReaddataService {
   // }
 
   findallUser(): Observable<any> {
-    const findallurl = 'http://localhost:3000/users/findalluser';
+    const findallurl = this.PrepEndpoint('users/findalluser');
     return this.http.get(findallurl, httpOptions);
   }
 
@@ -32,7 +38,7 @@ export class ReaddataService {
 
 
   findallProduct():Observable<any>{
-    const url = 'http://localhost:3000/api/findallProduct';
+    const url = this.PrepEndpoint('api/findallProduct');
     return this.http.get(url,httpOptions);
   }
 

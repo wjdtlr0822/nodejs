@@ -18,8 +18,15 @@ export class PointService {
     private http:HttpClient
   ) { }
 
+
+  PrepEndpoint(ep){
+    // return "http://localhost:3000/"+ep;
+    return ep;
+  }
+
+
   point_accumulate(user):Observable<any>{
-    const pointurl='http://localhost:3000/users/point';
+    const pointurl=this.PrepEndpoint('users/point');
     return this.http.post(pointurl,user,httpOptions);
   }
 
