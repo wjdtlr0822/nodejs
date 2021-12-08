@@ -16,7 +16,7 @@
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
+        webcam = new tmImage.Webcam(500, 500, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
@@ -41,19 +41,19 @@
         const prediction = await model.predict(webcam.canvas);
         
         if(prediction[0].className=="pet" && prediction[0].probability.toFixed(2)==1.00){
-            labelContainer.childNodes[0].innerHTML = "pet";
+            labelContainer.childNodes[0].innerHTML = "<h1>pet</h1>";
             test="pet";
         }
         else if(prediction[1].className=="can" && prediction[1].probability.toFixed(2)==1.00){
-            labelContainer.childNodes[0].innerHTML = "can";
+            labelContainer.childNodes[0].innerHTML = "<h1>can</h1>";
             test="can";
         }
-        else if(prediction[2].className=="glass" && prediction[2].probability.toFixed(2)==1.00){
-            labelContainer.childNodes[0].innerHTML = "glass";
+        else if(prediction[2].className=="glass" && prediction[2].probability.toFixed(2)>0.95){
+            labelContainer.childNodes[0].innerHTML = "<h1>glass</h1>";
             test="glass";
         }
         else{
-            labelContainer.childNodes[0].innerHTML = "no";
+            labelContainer.childNodes[0].innerHTML = "<h1>no</h1>";
             test="no";
         }
 

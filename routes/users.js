@@ -4,6 +4,7 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const config = require('../config/database');
+const bcrypt = require('bcryptjs');
 
 
 // back - end
@@ -104,7 +105,6 @@ router.post('/point',(req,res,next)=>{
         name : req.body.name,
         point : req.body.point
     };
-    console.log(userData.point);
     User.point(userData,(err,ok)=>{
         if(err) throw err;
         if(ok){
