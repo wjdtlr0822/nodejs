@@ -10,8 +10,11 @@ import { RegisterComponent } from './component/register/register.component';
 import { ShopComponent } from './component/shop/shop.component';
 import { FormsModule } from '@angular/forms';
 import { ValidateService } from './services/validate.service';
-import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
-import {HttpClientModule} from '@angular/common/http';
+import {
+  FlashMessagesModule,
+  FlashMessagesService,
+} from 'angular2-flash-messages';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { SeparateCollectionComponent } from './component/separate-collection/separate-collection.component';
 import { AdminpageComponent } from './component/adminpage/adminpage.component';
@@ -29,6 +32,8 @@ import { BoardwriteComponent } from './component/board/boardwrite/boardwrite.com
 import { BoardComponent } from './component/board/board.component';
 import { adminGuard } from './guards/adminGuard';
 import { PointService } from './services/point.service';
+import { BuyService } from './services/buy.service';
+import { ProductListComponent } from './component/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,8 @@ import { PointService } from './services/point.service';
     ShopProductComponent,
     BoardreadComponent,
     BoardwriteComponent,
-    BoardComponent
+    BoardComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,13 +62,13 @@ import { PointService } from './services/point.service';
     FlashMessagesModule,
     HttpClientModule,
     JwtModule.forRoot({
-      config:{
-        tokenGetter:()=>{
-          return localStorage.getItem('authToken')
-        }
-      }
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('authToken');
+        },
+      },
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     ValidateService,
@@ -73,8 +79,8 @@ import { PointService } from './services/point.service';
     DeleteService,
     adminGuard,
     PointService,
+    BuyService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}
