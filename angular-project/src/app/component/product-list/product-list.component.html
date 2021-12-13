@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>이미지</th>
+      <th>id</th>
+      <th>품목이름</th>
+      <th>가격</th>
+      <th>수량</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of buylist">
+      <td>
+        <img
+          alt="{{ list.imgsrc }}"
+          width="70"
+          height="70"
+          src="{{ list.imgsrc }}"
+        />
+      </td>
+      <td>{{ list.name }}</td>
+      <td>{{ list.productname }}</td>
+      <td>{{ list.price }}</td>
+      <td>{{ list.num }}</td>
+    </tr>
+  </tbody>
+</table>
