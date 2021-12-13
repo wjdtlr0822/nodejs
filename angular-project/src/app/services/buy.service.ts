@@ -15,8 +15,13 @@ const httpOptions = {
 export class BuyService {
   constructor(private http: HttpClient) {}
 
+  PrepEndpoint(ep){
+    // return "http://localhost:3000/"+ep;
+    return ep;
+  }
+
   buyproduct(num, point, name): Observable<any> {
-    const buyproducturl = 'http://localhost:3000/users/point';
+    const buyproducturl = this.PrepEndpoint('users/point');
     return this.http.post(
       buyproducturl,
       { name: name, point: point - num },
@@ -25,7 +30,7 @@ export class BuyService {
   }
 
   addProductList(product: Product, name, num): Observable<any> {
-    const addproductUrl = 'http://localhost:3000/api/addlist';
+    const addproductUrl = this.PrepEndpoint('api/addlist');
     return this.http.post(
       addproductUrl,
       { product: product, name: name, num: num },
@@ -34,7 +39,7 @@ export class BuyService {
   }
 
   findProudctList(name): Observable<any> {
-    const findProductUrl = 'http://localhost:3000/api/findlist';
+    const findProductUrl = this.PrepEndpoint('api/findlist');
     const httpOptions1 = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
