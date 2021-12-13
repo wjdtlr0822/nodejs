@@ -1,18 +1,29 @@
-<table class="table table-striped">
-<thead class="table-dark">
-<tr>
-      <th>id</th>
-      <th>title</th>
-</tr>
-</thead>
-<tbody>
-<tr *ngFor="let board of boards">
-      <td>{{ board.name }}</td>
-      <td>
-      <a  (click)='Readboard(board)' class="text-primary"> {{ board.title }}</a>
-      </td>
-</tr>
-</tbody>
-</table>
+<!-- 기존 table-srtriped -->
+<div class="container">
+  <h1>게시판</h1>
+  <table class="table table-srtriped">
+    <thead class="table-dark">
+      <tr>
+        <th>id</th>
+        <th>title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let board of boards">
+        <td>{{ board.name }}</td>
+        <td>
+          <a (click)="Readboard(board)" class="text-primary">
+            {{ board.title }}</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<input routerLink="/boardwrite" type="submit" class="btn btn-primary" value="글쓰기"/>
+  <input
+    routerLink="/boardwrite"
+    type="submit"
+    class="btn btn-primary"
+    value="글쓰기"
+  />
+</div>

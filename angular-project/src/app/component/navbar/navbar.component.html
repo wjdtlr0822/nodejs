@@ -39,43 +39,102 @@
 </div>
 </nav> -->
 
-
 <div class="navbar">
-    <div class="navbar-header">
+  <div class="navbar-header">
     <div class="container">
-        <a href="#" class="brand">
-            <img
-                src="assets/images/최종 메인.png"
-                width="120"
-                height="40"
-                alt="Logo"
-            />
-            <!-- This is website logo -->
-        </a>
-        <!-- Navigation button, visible on small resolution -->
-        <button
-            type="button"
-            class="btn btn-navbar"
-            data-toggle="collapse"
-            data-target=".nav-collapse"
-        >
-            <i class="icon-menu"></i>
-        </button>
-        <!-- Main navigation -->
-        <div class="">
-            <ul class="nav" id="top-navigation">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a routerLink="/collect" *ngIf="checkLoggedIn()">재활용 적립</a></li>
-                <li><a routerLink="/shop" *ngIf="checkLoggedIn()">포인트몰</a></li>
-                <li><a routerLink="/board"  *ngIf="checkLoggedIn()">board</a></li>
-                <li><a routerLink="/profile" *ngIf="checkLoggedIn()">마이페이지</a></li>
-                <li><a routerLink="/login" *ngIf="!checkLoggedIn()">로그인</a></li>
-                <li><a routerLink="/register" *ngIf="!checkLoggedIn()">회원가입</a></li>
-                <li><a class="nav-link text-white" (click)="onLogoutClick()" href="#" *ngIf="checkLoggedIn()">logout</a></li>
-                <li><a routerLink="/admin" *ngIf="this.name == this.admin">관리자페이지</a></li>
-            </ul>
-        </div>
-        <!-- End main navigation -->
+      <a href="#" class="brand">
+        <img
+          src="assets/images/최종 메인.png"
+          width="120"
+          height="40"
+          alt="Logo"
+        />
+        <!-- This is website logo -->
+      </a>
+      <!-- Navigation button, visible on small resolution -->
+      <button
+        type="button"
+        class="btn btn-navbar"
+        data-toggle="collapse"
+        data-target=".nav-collapse"
+      >
+        <i class="icon-menu"></i>
+      </button>
+      <!-- Main navigation -->
+      <div class="">
+        <ul class="nav" id="top-navigation">
+          <li>
+            <!-- 기존처럼 하려면 routerLink 대신 href="#"-->
+            <a class="nav-link text-white" routerLink="/">Home</a>
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              routerLink="/collect"
+              *ngIf="checkLoggedIn()"
+              >재활용 적립</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              routerLink="/shop"
+              *ngIf="checkLoggedIn()"
+              >포인트몰</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              routerLink="/board"
+              *ngIf="checkLoggedIn()"
+              >board</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              routerLink="/profile"
+              *ngIf="checkLoggedIn()"
+              >마이페이지</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              routerLink="/login"
+              *ngIf="!checkLoggedIn()"
+              >로그인</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              routerLink="/register"
+              *ngIf="!checkLoggedIn()"
+              >회원가입</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              (click)="onLogoutClick()"
+              routerLink="/"
+              *ngIf="checkLoggedIn()"
+              >logout</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link text-white"
+              routerLink="/admin"
+              *ngIf="this.name == this.admin"
+              >관리자페이지</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- End main navigation -->
     </div>
-    </div>
+  </div>
 </div>

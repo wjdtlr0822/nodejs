@@ -1,4 +1,4 @@
-
+<!-- <body>
     <h1>쇼핑페이지</h1>
     <br>
     <br>
@@ -18,18 +18,16 @@
         <p class="card-text" >{{product.extra}}</p>
         <p class="card-text">금액 : {{product.price}}</p>
         <p class="card-text">수 량 : <input type="number"  value=1 [(ngModel)]="num" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/></p>
-        <button (click)="buy()">구매</button>
-    
     </div>
     </div>
     </div>
     </div>
     
+    <button (click)="buy()">구매</button>
     <br>
-    <br>
+    <br> -->
 
-
-    <!--<body>
+<!--<body>
     <h1>쇼핑페이지</h1>
     <br>
     <br>
@@ -58,30 +56,98 @@
     <br>
     <br>-->
 
-
-
-<!-- <section class="u-clearfix u-custom-color-1 u-section-2" id="sec-6302">
+<body>
+  <section
+    class="u-clearfix u-custom-color-1 u-section-2 make-padding"
+    id="sec-6302"
+  >
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-container-style u-custom-color-2 u-expanded-width u-product u-product-1">
-            <div class="u-container-layout u-container-layout-1">
-            <img alt="{{product.imgsrc}}" class="u-image u-image-default u-product-control u-image-1" data-image-width="2000" data-image-height="1333" src="{{product.imgsrc}}">
-            <h2 class="u-product-control u-text u-text-default u-text-palette-3-base u-text-1">
-                <a class="u-product-title-link" href="#">{{product.productname}}</a>
-            </h2>
-            <div class="u-product-control u-product-price u-product-price-1">
-                <div class="u-price-wrapper u-spacing-10">
-                <div class="u-price u-text-palette-2-base" style="font-size: 1.5rem; font-weight: 700;">금액 : {{product.price}}</div>
-                </div>
+      <!--product--><!--product_options_json--><!--{"source":""}--><!--/product_options_json--><!--product_item-->
+      <div
+        class="
+          u-container-style
+          u-custom-color-2
+          u-expanded-width
+          u-product
+          u-product-1
+        "
+      >
+        <div class="u-container-layout u-container-layout-1">
+          <!--product_image-->
+          <img
+            alt="{{ product.imgsrc }}"
+            class="u-image u-image-default u-product-control u-image-1"
+            data-image-width="2000"
+            data-image-height="1333"
+            src="{{ product.imgsrc }}"
+          /><!--/product_image--><!--product_title-->
+          <h2
+            class="
+              u-product-control
+              u-text
+              u-text-default
+              u-text-palette-3-base
+              u-text-1
+            "
+          >
+            <a class="u-product-title-link" href="#"
+              ><!--product_title_content-->{{ product.productname
+              }}<!--/product_title_content--></a
+            >
+          </h2>
+          <!--/product_title--><!--product_price-->
+          <div class="u-product-control u-product-price u-product-price-1">
+            <div class="u-price-wrapper u-spacing-10">
+              <!--product_old_price-->
+              <div
+                class="u-price u-text-palette-2-base"
+                style="font-size: 1.5rem; font-weight: 700"
+              >
+                <!--product_regular_price_content-->{{
+                  product.price
+                }}
+                point<!--/product_regular_price_content-->
+              </div>
+              <!--/product_regular_price-->
             </div>
-            <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
-            <div class="u-product-control u-product-variations u-product-variations-1">
-                <div class="u-product-variant">
-                <label for="product-variant-select-1" class="u-label">수량</label>
-                <input type="number"  value=1 [(ngModel)]="num" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
-                </div>
+          </div>
+          <!--/product_price-->
+          <div
+            class="
+              u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1
+            "
+          ></div>
+          <!--product_variations-->
+          <div
+            class="
+              u-product-control u-product-variations u-product-variations-1
+            "
+          >
+            <!--product_variation-->
+            <div class="u-product-variant">
+              <label for="product-variant-select-1" class="u-label"
+                ><!--product_variation_label_content-->수량<!--/product_variation_label_content--></label
+              >
+              <input
+                type="number"
+                value="1"
+                [(ngModel)]="num"
+                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+              />
             </div>
-            <button (click)="buy()" type="button" class="btn btn-secondary btn-lg">구매하기</button>
-            </div>
+            <!--/product_variation-->
+          </div>
+          <!--/product_variations--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
+          <button
+            (click)="buy()"
+            type="button"
+            class="btn btn-secondary btn-lg"
+          >
+            구매하기
+          </button>
         </div>
-        </div>
-    </section> -->
+      </div>
+      <!--/product_item--><!--/product-->
+    </div>
+  </section>
+</body>

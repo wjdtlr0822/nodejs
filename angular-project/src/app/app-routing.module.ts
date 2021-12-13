@@ -16,6 +16,7 @@ import { SeparateCollectionComponent } from './component/separate-collection/sep
 import { ShopProductComponent } from './component/shop-product/shop-product.component';
 import { ShopComponent } from './component/shop/shop.component';
 import { ProductListComponent } from './component/product-list/product-list.component';
+import { ChangepwComponent } from './component/profile/changepw/changepw.component';
 import { AuthGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/adminGuard';
 
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: 'boardwrite', component: BoardwriteComponent },
   { path: 'boardread', component: BoardreadComponent },
   { path: 'productlist', component: ProductListComponent },
+  { path: 'changepw', component: ChangepwComponent },
 ];
 
 @NgModule({

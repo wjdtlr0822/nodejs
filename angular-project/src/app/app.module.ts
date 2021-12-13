@@ -34,6 +34,7 @@ import { adminGuard } from './guards/adminGuard';
 import { PointService } from './services/point.service';
 import { BuyService } from './services/buy.service';
 import { ProductListComponent } from './component/product-list/product-list.component';
+import { ChangepwComponent } from './component/profile/changepw/changepw.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ProductListComponent } from './component/product-list/product-list.comp
     BoardwriteComponent,
     BoardComponent,
     ProductListComponent,
+    ChangepwComponent,
   ],
   imports: [
     BrowserModule,
