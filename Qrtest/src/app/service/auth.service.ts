@@ -25,8 +25,8 @@ export class AuthService {
 
 
   PrepEndpoint(ep){
-    return "http://localhost:3000/"+ep;
-    // return 'https://teamproject1wjdtlr0822.herokuapp.com/'+ep;
+    // return "http://localhost:3000/"+ep;
+    return 'https://teamproject1wjdtlr0822.herokuapp.com/'+ep;
   }
 
 //   *******************************
@@ -62,18 +62,7 @@ export class AuthService {
     return this.http.get<any>(profileUrl, httpOptions1);
     }
 
-    //////////진행중
-  // buyproduct(num,point){
-  //   if((point-num)<0){
-  //     return 'false';
-  //   }
-  //   else{
-  //     const buyproducturl='http://localhost:3000/users/buy';
-  //     return this.http.get<any>(buyproducturl,httpOptions);
-  //     return 'true';
-  //   }
-    
-  // }
+
   
   getPoint(name):Observable<any>{
     const getpointurl=this.PrepEndpoint('users/getpoint');
