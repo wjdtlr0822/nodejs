@@ -34,6 +34,9 @@ import { adminGuard } from './guards/adminGuard';
 import { PointService } from './services/point.service';
 import { BuyService } from './services/buy.service';
 import { ProductListComponent } from './component/product-list/product-list.component';
+import { QrgenComponent } from './component/qrgen/qrgen.component';
+import { QrloginComponent } from './component/qrlogin/qrlogin.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import { ProductListComponent } from './component/product-list/product-list.comp
     BoardwriteComponent,
     BoardComponent,
     ProductListComponent,
+    QrgenComponent,
+    QrloginComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +66,7 @@ import { ProductListComponent } from './component/product-list/product-list.comp
     FormsModule,
     FlashMessagesModule,
     HttpClientModule,
+    NgxQRCodeModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

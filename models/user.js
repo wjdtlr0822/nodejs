@@ -24,6 +24,10 @@ const UserSchema = mongoose.Schema({
         type : Number,
         default:0,
         require:true
+    },
+    token: {
+        type: String,
+        required: false,
     }
 });
 
@@ -69,7 +73,21 @@ User.comparePassword = function(candidatePassword, hash, callback){
 User.deleteUser=function(id,callback){
     this.deleteOne({_id:id},callback)
 }
+User.getUserBytoken = function(token,callback){
+    const query = {token : token};
+    User.findOne(query,callback);
+}
 
+User.savetoken = function (username, token, callback) {
+    const query = { username: username };
+    const update = { token: token };
+    User.findOneAndUpdate(
+    query,
+    update,
+    { new: true, useFindAndModify: false },
+    callback
+    );
+    };
 
 
 module.exports=User;

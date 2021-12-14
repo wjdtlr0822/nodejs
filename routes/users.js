@@ -172,4 +172,48 @@ router.post("/ChangePW", (req, res, next) => {
   });
 });
 
+router.post("/registertoken", (req, res, next) => {
+
+    
+  const token = req.body.token;
+
+  User.savetoken(req.body.username, token, (err, cert) => {
+      if (err) throw err;
+      if (cert) {
+      return res.json({
+      success: true,
+      cert: token,
+      });
+      } else {
+      return res.json({
+      success: false,
+      msg: "Certificate issuing failed...",
+      });
+      }
+      });
+})
+
+router.post('/authenticatetoken',(req,res,next)=>{
+  const token = req.body.token;
+  User.getUserBytoken(token,(err,user)=>{
+      if(err) throw err;
+      if(!user){
+          return res.json({success:false, msg:'사용자가 없음'});
+      }
+      let tokenUser={
+          _id:user._id,
+          name:user.name,
+          username:user.username,
+          email:user.email,
+          point:user.point,
+      }
+      const token = jwt.sign({data:tokenUser},config.secret,{expiresIn:604800});
+      res.json({
+          success:true,
+          token:token,
+          userNoPW:tokenUser
+      });
+  })
+})
+
 module.exports = router;

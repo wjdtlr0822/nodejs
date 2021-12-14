@@ -18,6 +18,8 @@ import { ShopComponent } from './component/shop/shop.component';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import { AuthGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/adminGuard';
+import { QrgenComponent } from './component/qrgen/qrgen.component';
+import { QrloginComponent } from './component/qrlogin/qrlogin.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -56,6 +58,12 @@ const routes: Routes = [
   { path: 'boardwrite', component: BoardwriteComponent },
   { path: 'boardread', component: BoardreadComponent },
   { path: 'productlist', component: ProductListComponent },
+  { 
+    path: 'qrgen', 
+    component: QrgenComponent,
+    canActivate: [AuthGuard] ,
+  },
+  { path: 'qrlogin', component: QrloginComponent}
 ];
 
 @NgModule({

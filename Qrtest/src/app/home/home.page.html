@@ -14,8 +14,25 @@
     </ion-toolbar>
   </ion-header>
 
+  <h1>ReCycle</h1><br>
+  <ion-content>
+    <ion-slides #sliders (ionSlidesDidLoad)='slidesDidLoad(sliders) 'pager='true' [options]='slideOpts'>
+      <ion-slide>
+        <img src="../../assets/images/Slider01.png" alt="" srcset="">
+      </ion-slide>
+
+      <ion-slide>
+        <img src="../../assets/images/Slider02.png" alt="" srcset="">
+      </ion-slide>
+      
+      <ion-slide>
+        <img src="../../assets/images/Slider03.png" alt="" srcset="">
+      </ion-slide>
+
+    </ion-slides>
   <div id="container">
-    <strong class="capitalize">HOME2</strong>
-    <p>HOME3 <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">HOME4</a></p>
-  </div>
+    <h4>우리는 왜 재활용을 해야 할까요?</h4>
+        <!-- Section's title goes here -->
+        <p>환경 문제 해결 합시다</p>
+</div>
 </ion-content>

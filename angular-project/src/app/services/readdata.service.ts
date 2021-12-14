@@ -15,8 +15,8 @@ const httpOptions = {
 export class ReaddataService {
 
   PrepEndpoint(ep){
-    // return "http://localhost:3000/"+ep;
-    return ep;
+   //  return "http://localhost:3000/"+ep;
+  return ep;
   }
 
   private product: Product[] = [];

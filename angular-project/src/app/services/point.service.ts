@@ -20,7 +20,7 @@ export class PointService {
 
 
   PrepEndpoint(ep){
-    // return "http://localhost:3000/"+ep;
+    //return "http://localhost:3000/"+ep;
     return ep;
   }
 

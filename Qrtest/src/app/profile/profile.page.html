@@ -15,7 +15,10 @@
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <div *ngIf="userNoPW">
+      <h2 class="page-header">ID : {{ name }}</h2>
+      <h2 class="page-header">이름 : {{ username }}</h2>
+      <h2 class="page-header">이메일 : {{ email }}</h2>
+      <h2 class="page-header">point : {{ point }}</h2>
+    </div></div>
 </ion-content>

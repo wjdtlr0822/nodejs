@@ -25,8 +25,8 @@ export class AuthService {
 
 
   PrepEndpoint(ep){
-    return "http://localhost:3000/"+ep;
-    // return ep;
+    //return "http://localhost:3000/"+ep;
+    return ep;
   }
 
 //   *******************************
@@ -109,8 +109,6 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(authToken);
   }
 
-
-
 //   *******************************
 //   *******************************
 //   *******MADE BY 용호***********
@@ -143,4 +141,14 @@ getList(): Observable<any> {
   const listUrl = this.PrepEndpoint('boards/Boardlist');
   return this.http.get(listUrl);
   }
+
+  registertoken(token):Observable<any>{
+    const registertokenUrl = this.PrepEndpoint('users/registertoken');
+    return this.http.post(registertokenUrl,token,httpOptions);
+  }
+  
+  authenticatetoken(request): Observable<any> {
+    const authenticatetokenUrl = this.PrepEndpoint('users/authenticatetoken');
+    return this.http.post(authenticatetokenUrl, request, httpOptions);
+    }
 }

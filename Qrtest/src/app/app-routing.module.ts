@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,11 +27,19 @@ const routes: Routes = [
   {
     path: 'qrcode',
     loadChildren: () => import('./qrcode/qrcode.module').then( m => m.QrcodePageModule)
+    ,canActivate:[AuthGuard]
   },
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  }
+    ,canActivate:[AuthGuard]
+  },
+  {
+    path: 'board',
+    loadChildren: () => import('./board/board.module').then( m => m.BoardPageModule)
+    ,canActivate:[AuthGuard]
+  },
+
 ];
 
 @NgModule({

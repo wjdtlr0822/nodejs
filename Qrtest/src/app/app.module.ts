@@ -9,12 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports:[
-    BrowserModule, 
+    BrowserModule,
+    NgxQRCodeModule,
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
@@ -25,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
       },
     }),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [AuthGuard,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

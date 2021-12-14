@@ -11,6 +11,7 @@ export class AppComponent {
     { title: 'Register', url: 'register', icon: 'heart' },
     { title: 'Qrcode', url: 'qrcode', icon: 'archive' },
     { title: 'Profile', url: 'profile', icon: 'archive' },
+    { title: 'board', url: 'board', icon: 'archive' },
   ];
   constructor() {}
 }

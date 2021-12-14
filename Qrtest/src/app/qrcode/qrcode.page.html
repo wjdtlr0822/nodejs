@@ -14,8 +14,23 @@
     </ion-toolbar>
   </ion-header>
 
+  
   <div id="container">
-    <strong class="capitalize">QRCODE</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <br />
+    <h2 class="page-header">로그인용 QR 생성 - {{ username }}</h2>
+    <br />
+    <div class="mb-3">
+
+
+      <ion-card *ngIf="value">
+        <qr-code-all [qrCodeValue]="value">
+    </qr-code-all>
+      <ion-card-content>
+          <p>{{ value }}</p>
+        </ion-card-content>
+      </ion-card>
+    
+    </div>
   </div>
+
 </ion-content>
