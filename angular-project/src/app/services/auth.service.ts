@@ -25,7 +25,11 @@ export class AuthService {
 
 
   PrepEndpoint(ep){
+<<<<<<< HEAD
     //return "http://localhost:3000/"+ep;
+=======
+    // return "http://localhost:3000/"+ep;
+>>>>>>> 214f26abd36fdb09e8df6584e694a9833c31de88
     return ep;
   }
 
